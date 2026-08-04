@@ -27,6 +27,11 @@ for g,name in enumerate(groups):
  y=top+g*3*rh; box=(lx,int(y),97,int(y+3*rh)); d.rectangle(box,fill='#dedede',outline='black',width=2); vertical(box,name)
  for rr in range(3):
   py=int(y+rr*rh); b=(rx,py,1177,int(y+(rr+1)*rh)); d.rectangle(b,fill='#dedede',outline='black',width=2); centertext(b,f'PC{rr+1}',f30)
+# Preserve the original horizontal separators through the middle matrix.
+# Draw them before the balls so markers remain unobstructed.
+for g in range(7):
+ y=int(top+g*3*rh)
+ d.line((97,y,1088,y),fill='#d8d8d8',width=2)
 for r,row in enumerate(rows):
  for c,k in enumerate(row):ball(int(139+c*cw),int(36+r*rh),k)
 hy=1191; b=(7,hy,97,1256); d.rectangle(b,fill='#dedede',outline='black',width=2); centertext(b,'n',f30)
