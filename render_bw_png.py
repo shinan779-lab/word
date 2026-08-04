@@ -32,12 +32,16 @@ for g,name in enumerate(groups):
 for r in range(19):
  y=int(top+r*rh)
  d.line((97,y,1088,y),fill='#111',width=2)
+# Add vertical rules for every factor column, also behind the markers.
+for c in range(12):
+ x=int(mx+c*cw)
+ d.line((x,top,x,int(top+18*rh)),fill='#111',width=2)
 for r,row in enumerate(rows):
  for c,k in enumerate(row):ball(int(139+c*cw),int(36+r*rh),k)
 hy=1191; b=(7,hy,97,1256); d.rectangle(b,fill='white',outline='black',width=2); centertext(b,'n',f30)
 for c,name in enumerate(cols):
- x=int(mx+c*cw); b=(x,hy,int(mx+(c+1)*cw),1256); shade='white'; d.rectangle(b,fill=shade,outline='black',width=2); centertext(b,name,f27)
+ x=int(mx+c*cw); b=(x,hy,int(mx+(c+1)*cw),1256); shade='#e8e8e8' if c<6 else ('#c9c9c9' if c<9 else '#a9a9a9'); d.rectangle(b,fill=shade,outline='black',width=2); centertext(b,name,f27)
 b=(1088,hy,1177,1256); d.rectangle(b,fill='white',outline='black',width=2); centertext(b,'PCs',f27)
 for x,k in [(37,'O'),(426,'Y'),(839,'G')]:ball(x,1351,k,34)
-for x,shade in [(1,'white'),(394,'white'),(808,'white')]:d.rectangle((x,1491,x+63,1539),fill=shade,outline='#111',width=2)
+for x,shade in [(1,'#e8e8e8'),(394,'#c9c9c9'),(808,'#a9a9a9')]:d.rectangle((x,1491,x+63,1539),fill=shade,outline='#111',width=2)
 im.save('球_黑白版.png',dpi=(300,300))
